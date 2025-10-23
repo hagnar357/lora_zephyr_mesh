@@ -161,15 +161,6 @@ void main(void) {
         .public_network = false,
     };
 
-    if (lora_config(lora, &config) < 0) {#include <zephyr/kernel.h>
-#include <zephyr/device.h>
-#include <zephyr/drivers/lora.h>
-#include <zephyr/sys/printk.h>
-#include <string.h>
-
-#define RX_BUF_SIZE 255
-#define CACHE_SIZE 50
-
 /* Endereço único do nó */
 static uint16_t my_addr = 0x1000;
 
@@ -295,6 +286,11 @@ void forward_thread(void)
 }
 
 K_THREAD_DEFINE(forward_tid, 1024, forward_thread, NULL, NULL, NULL, 7, 0, 0);
+
+/*--------------Wifi--------------*/
+{
+    
+}
 
 /* ---------- Main ---------- */
 void main(void) {
